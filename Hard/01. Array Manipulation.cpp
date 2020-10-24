@@ -17,7 +17,6 @@ long arrayManipulation(int n, vector<vector<int>> queries) {
             // step 2 as described above
             A[(queries[i][1])] = A[(queries[i][1])]-queries[i][2]; 
         }
-       
     }
     long sum =0,x=0;
     // Step 3: Calculating maximum prefix array sum
@@ -30,39 +29,27 @@ long arrayManipulation(int n, vector<vector<int>> queries) {
             }
         }
     return sum;
-
 }
 
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
-
     string nm_temp;
     getline(cin, nm_temp);
-
     vector<string> nm = split_string(nm_temp);
-
     int n = stoi(nm[0]);
-
     int m = stoi(nm[1]);
-
     vector<vector<int>> queries(m);
     for (int i = 0; i < m; i++) {
         queries[i].resize(3);
-
         for (int j = 0; j < 3; j++) {
             cin >> queries[i][j];
         }
-
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-
     long result = arrayManipulation(n, queries);
-
     fout << result << "\n";
-
     fout.close();
-
     return 0;
 }
 
